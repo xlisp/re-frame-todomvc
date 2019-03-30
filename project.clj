@@ -1,9 +1,10 @@
 (defproject todomvc-re-frame "0.10.5"
   :dependencies [[org.clojure/clojure        "1.10.0"]
-                 [org.clojure/clojurescript  "1.10.439"]
+                 [org.clojure/clojurescript  "1.10.520"]
                  [reagent "0.8.1"]
-                 [re-frame "0.10.5"]
+                 [re-frame "0.10.6"]
                  [binaryage/devtools "0.9.10"]
+                 [nrepl "0.6.0"]
                  [clj-commons/secretary "1.2.4"]
                  [day8.re-frame/tracing "0.5.1"]]
 
@@ -27,7 +28,9 @@
                                                   :pretty-print  false}}}}}}
 
   :figwheel {:server-port 3450
-             :repl        true}
+             :nrepl-port  7008
+             :repl        true
+             :nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
 
 
   :clean-targets ^{:protect false} ["resources/public/js" "target"]
